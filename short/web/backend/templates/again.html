@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模擬YouTube Shorts</title>
+    <style>
+        body{
+            justify-content: center;
+            display: flex;
+            background-color: brown;
+        }
+        #word{
+            position: absolute;
+        }
+        #b1{
+            position: absolute;
+            top: 500px;
+        }
+        #b2{
+            position: absolute;
+            top: 450px;
+        }
+        button{
+            width: 100px;
+            height: 40px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="word">
+    <h1>感謝您點擊了一個封面<br>數據已自動回傳並統計<br>你可以點選下方按鈕選擇繼續測驗<br>或是查看目前已統計數據<br>如果可以的話<br>希望您能撥空多提供點擊數據<br>提升本站數據的樣本多樣性。</h1>
+
+    </div>
+    <button id="b1" onclick="jump()">再測一次 </button>
+    <button id="b2" onclick="jump2()">查看目前數據</button>
+</body>
+<script>
+function jump() {
+  window.location.href = "/thumbnail";
+}
+function jump2(){
+    window.location.href = "/show-result"
+}
+</script>
+</html>

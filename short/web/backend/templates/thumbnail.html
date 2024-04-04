@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圖片網格與懸停效果</title>
+    <style>
+        .body {
+            background-color: rgb(27, 27, 27);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            row-gap: 63px;
+            column-gap: 86px;
+            padding: 21px;
+            width: 88%;
+            position: relative;
+            top: 69px;
+            left: 66px;
+        }
+        .click-box{
+            width: 320px;
+            height: 240px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+        .photo {
+            width: 320px;  
+            height: 180px;
+            background: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #333;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .click-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+
+        }
+
+        .photo img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            border: 2px solid #ccc;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .icon {
+            display: none;
+            height: 24px;
+            width: 24px;
+        }
+        .icon.light-mode {
+                display: none;
+            }
+
+        .icon.dark-mode {
+                display: block;
+            }
+        
+
+        body.light-mode {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        body.dark-mode {
+            background: #333;
+            color: #f0f0f0;
+        }
+        .title{
+            overflow: hidden;
+            width: 100%;
+            height: 60px;
+        }
+        .topbar{
+            width: 100%;
+            position: fixed;
+            top: -32px;
+            left: 0;
+            z-index: 1000;
+            padding: 25px;
+            height: 68px;
+        }
+        .topbar.white-mode {
+            background-color: #f0f0f0;
+        }
+        .topbar.dark-mode {
+            background-color: #333;
+        }
+        #searchBox {
+            background-color: transparent;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            padding: 10px;
+            outline: none;
+            width: 450px;
+            height: 30px;
+            left: 540px;
+            position: relative;
+            bottom: 30px;
+        }
+
+        #searchBox:focus {
+            border-color: #666; /* 當輸入框獲焦時，改變邊框顏色 */
+        }
+        #youtube-icon{
+            width: 40px;
+            height: 40px;
+            position: relative;
+            top: 5px
+        }
+        #guide-word{
+            font-size: 20px;
+            font-family: system-ui;
+        }
+        #guide_button{
+            display: flex;
+            flex-direction: row-reverse;
+            width: 186px;
+            top: 23px;
+            position: relative;
+        }
+        #image-id{
+            width: 320px;  
+            height: 180px;
+            border-radius: 10px;
+        }
+        .tag {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 5px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .click-box:hover .tag {
+            display: block;
+        }
+    </style>
+</head>
+<body class="body light-mode">
+    <header class="topbar white-mode ">
+        <div id="guide_button">
+            <h1 id="guide-word">ThumbnailTest</h1>
+            <img id="youtube-icon" src="http://localhost:25565\image\youtube.png">
+        </div>
+
+        <input type="text" id="searchBox" placeholder="搜尋...">
+        <div class="toggle-btn" onclick="toggleTheme()">
+            <img class="icon light-mode" src="http://localhost:25565\image\sun.png" alt="Light Mode">
+            <img class="icon dark-mode" src="http://localhost:25565\image\moon.png" alt="Dark Mode">
+        </div>
+      </header>
+    <div class="gallery">
+        <!-- Repeat this div for each photo -->
+        <div class="click-box">
+            <div class="photo">圖片 1</div>
+            <div class="title">1</div>    
+        </div>
+        <div class="click-box">
+            <div class="photo">圖片 2</div>
+            <div class="title">2</div>    
+        </div>
+        <div class="click-box">
+            <div class="photo">圖片 3</div>
+            <div class="title">3</div>    
+        </div>
+        <div class="click-box">
+            <div class="photo">圖片 4</div>
+            <div class="title">4</div>    
+        </div>
+        <div class="click-box">
+            <div class="photo">圖片 5</div>
+            <div class="title">5</div>    
+        </div>
+        <div class="click-box">
+            <div class="photo">圖片 6</div>
+            <div class="title">6</div>    
+        </div>
+        <div class="click-box">
+            <div class="photo">圖片 7</div>
+            <div class="title">7</div>    
+        </div>
+        <div class="click-box">
+            <div class="photo">圖片 8</div>
+            <div class="title">8</div>    
+        </div>
+        <div class="click-box">
+            <div class="photo">圖片 9</div>
+            <div class="title">9</div>    
+        </div>
+        <div class="click-box">
+            <div class="photo">圖片 10</div>
+            <div class="title">10</div>    
+        </div>
+        <div class="click-box">
+            <div class="photo">圖片 11</div>
+            <div class="title">11</div>    
+        </div>
+        <div class="click-box">
+            <div class="photo">圖片 12</div>
+            <div class="title">12</div>    
+        </div>
+
+        <!-- ... -->
+    </div>
+    <script>
+        function toggleTheme() {
+            var body = document.body;
+            var icons = document.querySelectorAll('.icon');
+            var topbar = document.querySelector('.topbar'); // 使用 querySelector 獲得單一元素
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode')
+            topbar.classList.toggle('dark-mode'); // 切換 topbar 的 dark-mode
+            topbar.classList.toggle('white-mode'); // 切換 topbar 的 white-mode，如果你的 CSS 中是 light-mode，則這裡應該相應更改
+            for (var i = 0; i < icons.length; i++) {
+                icons[i].classList.toggle('light-mode');
+                icons[i].classList.toggle('dark-mode');
+            }
+        }
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/get-thumbnail') // 請求 Flask 路由提供的圖片數據
+            .then(response => response.json()) // 將回應轉為 JSON
+            .then(data => {
+                const gallery = document.querySelector('.gallery'); // 獲取 HTML 中的 gallery 區域
+                gallery.innerHTML = ''; // 清空當前的內容
+                console.log(data)
+                // 遍歷所有圖片數據，創建對應的 HTML 元素
+                data.forEach(img => {
+                    const clickBox = document.createElement('div');
+                    clickBox.className = 'click-box';
+
+                    const photoDiv = document.createElement('div');
+                    const image = document.createElement('img');
+                    image.id = 'image-id'
+                    image.tag = img.tag;
+                    image.src = img.path; // 設置圖片的來源路徑
+                    image.alt = img.title; // 設置圖片的 alt 文本
+                    photoDiv.appendChild(image); // 將 img 元素添加到 photoDiv 中
+
+                    const titleDiv = document.createElement('div');
+                    titleDiv.className = 'title';
+                    titleDiv.textContent = img.title; // 或者 img.title，根據您想要顯示的內容
+
+                    const tagDiv = document.createElement('div');
+                    tagDiv.className = 'tag';
+                    tagDiv.textContent = img.tag; // 假設每個 img 對象中都有一個 tag 屬性
+
+                    // 將 photo 和 title div 添加到 clickBox 中
+                    clickBox.appendChild(photoDiv);
+                    clickBox.appendChild(titleDiv);
+                    clickBox.appendChild(tagDiv); // 添加這一行
+
+                    // 最後，將 clickBox 添加到 gallery 中
+                    gallery.appendChild(clickBox);
+                    document.querySelectorAll('.click-box').forEach(function(box) {
+                        box.addEventListener('click', boxreturninfo);
+                    });
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    });
+    </script>
+    <script>
+        function boxreturninfo() {
+            var title = this.querySelector('.title').innerText; // 獲取該click-box中的title
+            var tag = this.querySelector('.tag').innerText; // 獲取該click-box中的title
+                // 使用fetch發送POST請求到後端
+                fetch('/update_title_count', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ title: title }), // 將title轉換為JSON格式
+                })
+                .then(response => response.json())
+                .catch(error => console.error('Error:', error));
+
+                // 使用fetch發送POST請求到後端
+                fetch('/update_tag_count', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ tag: tag }), // 將title轉換為JSON格式
+                })
+                .then(response => response.json())
+                .then(data => {
+                    setTimeout(1000)
+                    window.location.href = "/again"; // 請確保URL是正確的
+                })
+                .catch(error => console.error('Error:', error));
+            };
+    </script>
+</body>
+
+</html>

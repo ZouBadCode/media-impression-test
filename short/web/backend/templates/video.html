@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模擬YouTube Shorts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='video.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+    <button id="like-button" class="like-button">
+        <i class="fa fa-thumbs-up"></i> <!-- 使用 Font Awesome 圖標，或者您自己的圖標 -->
+    </button>
+    <button id="comment-button" class="comment-button">
+    <p>Tag</p>
+    </button>
+    <div id="video-container">
+        <video id="video-player" controls autoplay></video>
+        <h2 id="video-title">影片名稱</h2>
+    </div>
+    <script src="{{ url_for('static', filename='video.js') }}"></script>
+    <script src="{{ url_for('static', filename='observer.js') }}"></script>
+    <script src="{{ url_for('static', filename='like.js') }}"></script>
+
+</body>
+
+</html>

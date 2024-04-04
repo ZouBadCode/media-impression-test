@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <style>
+        body{
+            justify-content: center;
+            display: flex;
+            font-size: 30px;
+            bottom: 30px;
+            position: relative;
+        }
+
+        #image-container{
+            width: 200px;
+            height: 224px;
+            justify-content: center;
+            display: flex;
+            position: absolute;
+            top: 758px;
+            border: 1px solid black;
+            left: auto;
+        }
+        #chart-div {
+            width: 1264px;
+            height: 361px;
+            display: flex;
+            left: 264px;
+            top: 100px;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+<h1 >封面測試數據區</h1>
+<button id="to-tag" style="
+    width: 89px;
+    height: 45px;
+    top: 62px;
+    position: absolute;
+    left: 621px;
+    background: cyan;
+    border: 1px solid black;
+    border-radius: 10px;" onclick="go_thumbnail()">看圖片數據</button>
+<div id="chart-div">
+    <canvas id="chart"></canvas>
+</div>   
+<script>
+function go_thumbnail(){
+    window.location.href = "/show-result"
+}
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/get-tag_data')
+    .then(response => response.json())
+    .then(data => {
+        const labels = Object.keys(data);
+        const values = Object.values(data);
+
+        // 生成隨機顏色的函數
+        function getRandomColor() {
+            var r = Math.floor(Math.random() * 256); // 0-255
+            var g = Math.floor(Math.random() * 256); // 0-255
+            var b = Math.floor(Math.random() * 256); // 0-255
+            return 'rgba(' + r + ', ' + g + ', ' + b + ', 0.2)'; // 產生隨機顏色
+        }
+
+        // 預設的顏色陣列
+        const backgroundColors = [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ];
+
+        const borderColors = [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ];
+
+        // 如果數據數量超過預設顏色數量，生成額外的隨機顏色
+        while (backgroundColors.length < values.length) {
+            backgroundColors.push(getRandomColor());
+            borderColors.push(getRandomColor());
+        }
+
+        const ctx = document.getElementById('chart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '值',
+                    data: values,
+                    backgroundColor: backgroundColors,
+                    borderColor: borderColors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks:{
+                            stepSize: 1, // 設定刻度間隔為 1
+                        }
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: true,
+                },
+                plugins: {
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                }
+            }
+        });
+    })
+});
+
+</script>
+</body>
+</html>

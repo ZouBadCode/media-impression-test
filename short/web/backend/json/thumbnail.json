@@ -1,0 +1,16 @@
+[
+    {"path": "http://localhost:25565/thumbnail/random/曲博1.jpg", "number": 1, "title": "NVIDIA都不是對手！？麻省理工(MIT)矽光子新方向！光學神經網路(ONN)取代圖形處理器(GPU)如何運算？", "attribute": "random", "tag": "tag1233333333333333333333333333,tag333333444"},
+    {"path": "http://localhost:25565/thumbnail/random/藍色松鼠1.jpg", "number": 2, "title": "通靈之戰！PRX f0rsakeN 芮茲請 Jing 上身！benjyfishy 神明附體！兩隊共拿下7個4殺 ｜特戰英豪｜特戰比賽｜馬德里大師賽 ｜PRX vs TH MAP3 雙塔迷城", "attribute": "random", "tag": "tag2"},
+    {"path": "http://localhost:25565/thumbnail/random/Mrbeast1.jpg", "number": 3, "title": "Press This Button To Win $100,000!", "attribute": "random", "tag": "tag3"},
+    {"path": "http://localhost:25565/thumbnail/random/Mrbeast2.jpg", "number": 4, "title": "$1 vs $1,000,000 Hotel Room!", "attribute": "random", "tag": "tag4"},
+    {"path": "http://localhost:25565/thumbnail/random/Mrbeast3.jpg", "number": 5, "title": "Ages 1 - 100 Fight For $500,000", "attribute": "random", "tag": "tag5"},
+    {"path": "http://localhost:25565/thumbnail/random/佐佑1.png", "number": 6, "title": "【100日生存❌AI】‼️如果我用ChatGPT玩Minecraft100天‼️🏛️AI甚至會教你壓榨村民、蓋建築🏛️🔥我能與ChatGPT擦出什麼火花呢🔥【100日生存】【全字幕】", "attribute": "random", "tag": "tag6"},
+    {"path": "http://localhost:25565/thumbnail/random/佐佑2.png", "number": 7, "title": "【 Minecraft｜無拘生存】🧨新年夫妻🧨居然在多人Minecraft伺服器中公然呼🌿🌿，居然還將🌿🌿放入紅包分送給其他玩家，是否會受到制裁呢 ft. @Roco343 【全字幕 】【新年】", "attribute": "random", "tag": "tag7"},
+    {"path": "http://localhost:25565/thumbnail/target/佐佑3.png", "number": 8, "title": "【 Minecraft｜原味生存】🔥原味生存!!!啟動~~~🔥來看看⛏️挖24個鐵錠都有問題的男人🧑‍🦱，是如何玩🎮Minecraft🎮的吧，佐佑是否能左右這個世界呢🌍，就讓我們繼續看下去吧【全字幕】", "attribute": "target", "tag": "tag8"},
+    {"path": "http://localhost:25565/image/youtube.png", "number": 9, "title": "圖片 9", "attribute": "target", "tag": "tag9"},
+    {"path": "http://localhost:25565/image/youtube.png", "number": 10, "title": "圖片 10", "attribute": "random", "tag": "tag10"},
+    {"path": "http://localhost:25565/image/youtube.png", "number": 11, "title": "圖片 11", "attribute": "random", "tag": "tag11"},
+    {"path": "http://localhost:25565/image/youtube.png", "number": 12, "title": "圖片 12", "attribute": "random", "tag": "tag12"},
+    {"path": "http://localhost:25565/image/youtube.png", "number": 13, "title": "圖片 13", "attribute": "random", "tag": "tag13"},
+    {"path": "http://localhost:25565/image/sun.png", "number": 14, "title": "圖片 14", "attribute": "random", "tag": "tag14"}
+]

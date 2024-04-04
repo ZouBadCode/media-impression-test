@@ -1,0 +1,163 @@
+body,
+html {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+.content2 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: #f0f0f0;
+    position: relative;
+    overflow: hidden;
+    /* 隱藏超出邊框的圓球部分 */
+    cursor: crosshair;
+    /* 在content2內部將滑鼠游標設為準星 */
+}
+
+.slide-in {
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: lightblue;
+    opacity: 0;
+}
+
+.slide-in.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.arrow {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    color: #000;
+    cursor: pointer;
+    animation: blink 1.5s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+.slide-in .main-button {
+    display: inline-block;
+    padding: 82px 171px;
+    font-size: 18px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+    bottom: 98px;
+    position: absolute;
+}
+
+.main-button:hover {
+    background-color: #0056b3;
+
+}
+
+.slide-in .description-title {
+    margin-bottom: 50%;
+    position: absolute;
+    font-size: 100px;
+}
+
+
+.slide-in .description-content {
+    font-size: 40px;
+    position: relative;
+    text-align: center;
+    margin-left: 42px;
+    height: 502px;
+}
+
+
+.thumbnail-test {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: rgb(151, 255, 133);
+}
+
+
+#thumbnail-button {
+    display: inline-block;
+    padding: 82px 171px;
+    font-size: 18px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: -400px;
+    position: absolute;
+}
+
+#thumbnail-button:hover {
+    background-color: #0056b3;
+
+}
+
+.thumbnail-test .description-title {
+    margin-bottom: 50%;
+    position: absolute;
+    font-size: 100px;
+}
+
+
+.thumbnail-test .description-content {
+    font-size: 40px;
+    position: relative;
+    text-align: center;
+    margin-left: 42px;
+    height: 502px;
+}
+
+#to_anl {
+    display: inline-block;
+    padding: 82px 171px;
+    font-size: 18px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: -400px;
+    position: absolute;
+}
+
+#to_anl:hover {
+    background-color: #0056b3;
+
+}

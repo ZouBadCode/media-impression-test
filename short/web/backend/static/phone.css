@@ -1,0 +1,13 @@
+.background-image {
+    width: 100%;
+    height: 100vh;
+    /* 設定高度為視窗高度 */
+    background-image: url('C:/Users/quiche/Desktop/school/test/phone.png');
+    background-size: cover;
+    /* 背景圖片覆蓋整個容器 */
+    background-position: center;
+    /* 中心對齊背景圖片 */
+    opacity: 0.5;
+    /* 設定透明度為0.5，使圖片看起來更淡 */
+    position: relative;
+}
